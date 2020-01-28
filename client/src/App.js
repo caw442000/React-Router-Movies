@@ -5,8 +5,12 @@ import SavedList from './Movies/SavedList';
 import MovieList from "./Movies/MovieList";
 import Movie from "./Movies/Movie";
 
+
 const App = () => {
   const [savedList, setSavedList] = useState( [] );
+  console.log ("this is savedList", savedList)
+  // const movies = MovieDetails();
+  // console.log("these are movies in App", movies);
 
   const addToSavedList = movie => {
     setSavedList( [...savedList, movie] );
@@ -15,10 +19,12 @@ const App = () => {
   return (
     <div>
       <SavedList list={savedList} />
-      <Route exact path= "/" component= {MovieList} />
-      <Route path="./Movies/id">
-        <Movie />
-      </Route>
+      <Route exact path= "/">
+        <MovieList />
+        </Route>
+      <Route path="/Movies/:banana" component ={Movie} />
+       
+      
     </div>
   );
 };
